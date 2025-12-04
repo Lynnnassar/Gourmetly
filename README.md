@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# 🍽️ Gourmetly — Recipe Organizer & Weekly Meal Planner  
+*A React-based web application for viewing recipes, planning meals, and exploring cooking ideas.*
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+## 📌 Project Overview
 
-In the project directory, you can run:
+**Gourmetly** is a modern, responsive React application designed for food lovers who want to browse recipes, explore ingredients, and plan meals for the entire week.  
+The app provides an elegant user interface, fast performance, and an enjoyable cooking experience.
 
-### `npm start`
+This project was developed as part of **CSCI426: Advanced Web Programming** to demonstrate skills in UI/UX, React development, responsive design, and deployment.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ✨ Features
 
-### `npm test`
+### **📄 Pages Included**
+- **Home** – Featured recipes, meal of the day, introduction  
+- **About** – Detailed explanation of the system, usage, and benefits  
+- **Recipes** – Dynamic recipe listing with search + filtering  
+- **Meal Plan** – Add/remove recipes from a weekly plan  
+- **Contact** – Professional contact form with submission state  
+- **Dynamic Recipe Page** – Individual recipe details (ingredients + steps)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+### **⚙️ Core Functionality**
+- Browse recipes with images  
+- Add meals to the weekly plan  
+- Remove meals from the plan  
+- Dark/Light mode toggle  
+- Responsive layout for all screen sizes  
+- Dynamic recipe detail routing (`/recipes/:id`)  
+- Local image assets & external images  
+- Form handling and user feedback  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🛠️ Technologies Used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **React.js**
+- **React Router**
+- **CSS3 (custom styling)**
+- **Git & GitHub**
+- **Vercel / Netlify (Deployment)**  
+- **Unsplash images / local assets**
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📂 Project Structure
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+src
+├── assets
+│ └── images/
+│ ├── salad.jpg
+│ ├── toast.jpg
+│ ├── bolognese.jpg
+│ ├── pancakes.jpg
+├── components
+│ ├── Navbar.js
+│ ├── Footer.js
+│ ├── RecipeCard.js
+├── pages
+│ ├── Home.js
+│ ├── About.js
+│ ├── Recipes.js
+│ ├── RecipeDetails.js
+│ ├── MealPlan.js
+│ ├── Contact.js
+├── App.js
+├── App.css
+└── index.js

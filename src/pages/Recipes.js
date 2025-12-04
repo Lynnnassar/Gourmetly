@@ -9,8 +9,8 @@ import pancakesImg from '../assets/images/pancakes.jpg';
 const allRecipes = [
   { id: 1, name: 'Spaghetti Bolognese', type: 'Dinner', shortDesc: 'Classic Italian pasta.', image: bologneseImg },
   { id: 2, name: 'Avocado Toast', type: 'Breakfast', shortDesc: 'Healthy breakfast.', image: toastImg },
-  { id: 3, name: 'Chicken Ceasar Salad', type: 'Lunch', shortDesc: 'Fresh and light.', image: saladImg },
-  { id: 4, name: 'Pancakes', type: 'Breakfast', shortDesc: 'Fluffy and delicious.', image: pancakesImg },
+  { id: 3, name: 'Pancakes', type: 'Breakfast', shortDesc: 'Fluffy and delicious.', image: pancakesImg },
+  {id: 4, name: 'Chicken Ceasar Salad', type: 'Lunch', shortDesc: 'Fresh and light.', image: saladImg }
 ];
 
 
