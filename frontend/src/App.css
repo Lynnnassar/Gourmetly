@@ -1,42 +1,326 @@
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  height: 100%;
+  font-family: "Inter", sans-serif;
+}
+
+/* =========================
+   APP WRAPPER (Footer Fix)
+========================= */
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #fafafa;
+  color: #222;
+}
+
+/* Main content grows to push footer down */
+.main-content {
+  flex: 1;
+  padding: 2rem 3rem;
+}
+
+/* =========================
+   DARK MODE
+========================= */
+.app-wrapper.dark {
+  background-color: #121212;
+  color: #eaeaea;
+}
+
+.app-wrapper.dark a {
+  color: #eaeaea;
+}
+
+.app-wrapper.dark .recipe-card {
+  background-color: #1e1e1e;
+}
+
+.app-wrapper.dark footer {
+  background-color: #1a1a1a;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+}
+
+nav a {
+  text-decoration: none;
+  color: inherit;
+  margin: 0 0.7rem;
+  font-weight: 500;
+}
+
+nav a:hover {
+  opacity: 0.7;
+}
+
+.app-wrapper.dark nav {
+  background-color: #181818;
+  border-bottom: 1px solid #333;
+}
+
+/* =========================
+   HOME PAGE
+========================= */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.hero {
   text-align: center;
+  padding: 4rem 1rem;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.hero p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+/* =========================
+   FEATURED / RECIPES GRID
+========================= */
+.featured-section h2 {
+  margin-bottom: 1.5rem;
+}
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.recipe-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.recipe-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.recipe-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.recipe-card h3 {
+  margin: 0.8rem 0 0.4rem;
+}
+
+.recipe-card p {
+  font-size: 0.9rem;
+  opacity: 0.75;
+  margin-bottom: 0.8rem;
+}
+
+/* =========================
+   AUTH / LOGIN / REGISTER
+========================= */
+.auth-container {
+  max-width: 400px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.app-wrapper.dark .auth-container {
+  background-color: #1e1e1e;
+  color: #eaeaea;
+}
+
+.auth-form h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+  transition: border 0.2s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #ff7a00;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none !important;
+}
+
+.btn-primary {
+  background-color: #ff7a00;
+  color: #fff !important;
+}
+
+.btn-primary:hover {
+  background-color: #e56d00;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(255, 122, 0, 0.25);
+}
+
+.btn-secondary {
+  background-color: #444;
+  color: #fff !important;
+}
+
+.btn-secondary:hover {
+  background-color: #333;
+}
+
+.btn-outline-primary {
+  background-color: transparent;
+  border: 2px solid #ff7a00;
+  color: #ff7a00 !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: #ff7a00;
+  color: #fff !important;
+}
+
+.btn-sm {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+}
+
+.btn-lg {
+  padding: 0.75rem 1.6rem;
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
+.btn:disabled,
+.btn.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 122, 0, 0.35);
+}
+
+/* Dark mode buttons */
+.app-wrapper.dark .btn-primary {
+  background-color: #ff8c1a;
+}
+
+.app-wrapper.dark .btn-primary:hover {
+  background-color: #ff7a00;
+}
+
+.app-wrapper.dark .btn-outline-primary {
+  border-color: #ff8c1a;
+  color: #ff8c1a !important;
+}
+
+.app-wrapper.dark .btn-outline-primary:hover {
+  background-color: #ff8c1a;
+  color: #121212 !important;
+}
+
+/* =========================
+   RECIPES PAGE FIX
+========================= */
+.recipes-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.recipes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recipes-header h1 {
+  font-size: 2.2rem;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  margin-top: auto;
+  padding: 1.5rem;
+  text-align: center;
+  background-color: #f1f1f1;
+  border-top: 1px solid #ddd;
+}
+
+.app-wrapper.dark footer {
+  border-top: 1px solid #333;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 1.5rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .hero h1 {
+    font-size: 2.2rem;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
