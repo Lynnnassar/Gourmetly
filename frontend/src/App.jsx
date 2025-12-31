@@ -35,7 +35,7 @@ export default function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/About" element={<About />} />
               <Route path="/Contact" element={<Contact />} />
-
+               <Route path="/register" element={<Register />} /> 
               {/* Private Routes */}
               <Route
                 path="/dashboard"
