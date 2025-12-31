@@ -1,94 +1,87 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useData } from "../context/DataContext";
+import { useNavigate } from "react-router-dom";
 
-function Register() {
-  const [formData, setFormData] = useState({
+export default function Register() {
+  const { register } = useData();
+  const navigate = useNavigate();
+
+  const [form, setForm] = useState({
     name: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Add registration logic
-    console.log("Registering user:", formData);
+
+    if (!form.name || !form.email || !form.password) {
+      alert("All fields are required");
+      return;
+    }
+
+    if (form.password !== form.confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    const res = await register({
+      name: form.name, // 🔥 MATCHES BACKEND
+      email: form.email,
+      password: form.password,
+    });
+
+    if (res.user) {
+      alert("Registration successful. Please login.");
+      navigate("/login");
+    } else {
+      alert(res.message || "Registration failed");
+    }
   };
 
   return (
     <div className="auth-container">
       <form className="auth-form" onSubmit={handleSubmit}>
-        <h2>Create an Account</h2>
+        <h2>Register</h2>
 
-        <div className="form-group">
-          <label htmlFor="name">Full Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="form-input"
-            required
-          />
-        </div>
+        <input
+          className="form-input"
+          placeholder="Full Name"
+          value={form.name}
+          onChange={(e) => setForm({ ...form, name: e.target.value })}
+        />
 
-        <div className="form-group">
-          <label htmlFor="email">Email Address</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="form-input"
-            required
-          />
-        </div>
+        <input
+          className="form-input"
+          placeholder="Email"
+          type="email"
+          value={form.email}
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
+        />
 
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            className="form-input"
-            required
-          />
-        </div>
+        <input
+          className="form-input"
+          placeholder="Password"
+          type="password"
+          value={form.password}
+          onChange={(e) => setForm({ ...form, password: e.target.value })}
+        />
 
-        <div className="form-group">
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            className="form-input"
-            required
-          />
-        </div>
+        <input
+          className="form-input"
+          placeholder="Confirm Password"
+          type="password"
+          value={form.confirmPassword}
+          onChange={(e) =>
+            setForm({ ...form, confirmPassword: e.target.value })
+          }
+        />
 
-        <button type="submit" className="btn btn-primary btn-lg w-100">
+        <button className="btn btn-primary w-100">
           Register
         </button>
-
-        <p className="mt-3 text-center">
-          Already have an account?{" "}
-          <Link to="/login" className="btn btn-link p-0">
-            Login here
-          </Link>
-        </p>
       </form>
     </div>
   );
 }
-
-export default Register;

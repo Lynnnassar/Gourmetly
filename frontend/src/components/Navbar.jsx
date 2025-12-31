@@ -1,38 +1,41 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import DarkModeToggle from './DarkModeToggle';
+import React from "react";
+import { Link } from "react-router-dom";
+import { useData } from "../context/DataContext";
 
-function Navbar({ darkMode, toggleDarkMode }) {
+export default function Navbar() {
+  const { user, logout } = useData();
+
   return (
-    <nav style={{
-      display:'flex',
-      justifyContent:'space-between',
-      alignItems:'center',
-      padding:'12px 25px',
-      backgroundColor:'#ff7f50'
-    }}>
-      <div style={{ fontWeight:'bold', fontSize:'24px', color:'white' }}>
-        Gourmetly
-      </div>
+    <nav className="navbar">
+      <div className="navbar-container">
+        <Link to="/" className="navbar-logo">Gourmetly</Link>
 
-      <div>
-        <Link to="/" style={linkStyle}>Home</Link>
-        <Link to="/about" style={linkStyle}>About</Link>
-        <Link to="/recipes" style={linkStyle}>Recipes</Link>
-        <Link to="/mealplan" style={linkStyle}>Meal Plan</Link>
-        <Link to="/dashboard" style={linkStyle}>Dashboard</Link>
-        <Link to="/login" style={linkStyle}>Login</Link>
-        <Link to="/register" style={linkStyle}>Register</Link>
-        <DarkModeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        <ul className="navbar-menu">
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/recipes">Recipes</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
+
+          {user && (
+            <>
+              <li><Link to="/mealplan">Meal Plan</Link></li>
+              <li><Link to="/dashboard">Dashboard</Link></li>
+              <li>
+                <button className="btn btn-sm btn-secondary" onClick={logout}>
+                  Logout
+                </button>
+              </li>
+            </>
+          )}
+
+          {!user && (
+            <>
+              <li><Link to="/login">Login</Link></li>
+              <li><Link to="/register">Register</Link></li>
+            </>
+          )}
+        </ul>
       </div>
     </nav>
   );
 }
-
-const linkStyle = {
-  margin:'0 10px',
-  color:'white',
-  fontWeight:'500'
-};
-
-export default Navbar;

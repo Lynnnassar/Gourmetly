@@ -1,55 +1,66 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { DataProvider, useData } from "./context/DataContext";
 
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import About from "./pages/About";
+import Contact from "./pages/Contact"
+import Home from "./pages/Home";
+import Recipes from "./pages/Recipes";
+import RecipeDetail from "./pages/RecipeDetail";
+import MealPlan from "./pages/MealPlan";
+import Dashboard from "./pages/Dashboard";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
-import Home from './pages/Home';
-import About from './pages/About';
-import Recipes from './pages/Recipes';
-import RecipeDetail from './pages/RecipeDetail';
-import MealPlan from './pages/MealPlan';
-import Contact from './pages/Contact';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Dashboard from './pages/Dashboard';
-import { DataProvider } from './context/DataContext';
-import './App.css';
+// ===== Private Route Component =====
+function PrivateRoute({ children }) {
+  const { user } = useData();
+  return user ? children : <Navigate to="/login" replace />;
+}
 
-function App() {
-  const [darkMode, setDarkMode] = useState(false);
-
+export default function App() {
   return (
     <DataProvider>
       <Router>
-        {/* App Wrapper makes footer stick to bottom */}
-        <div className={`app-wrapper ${darkMode ? 'dark' : ''}`}>
-          
-          <Navbar
-            darkMode={darkMode}
-            toggleDarkMode={() => setDarkMode(!darkMode)}
-          />
-
-          {/* Main content expands to push footer down */}
+        <div className="app-wrapper">
+          <Navbar />
           <main className="main-content">
             <Routes>
+              {/* Public Routes */}
               <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
               <Route path="/recipes" element={<Recipes />} />
               <Route path="/recipes/:id" element={<RecipeDetail />} />
-              <Route path="/mealplan" element={<MealPlan />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/contact" element={<Contact />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
+              <Route path="/About" element={<About />} />
+              <Route path="/Contact" element={<Contact />} />
+
+              {/* Private Routes */}
+              <Route
+                path="/dashboard"
+                element={
+                  <PrivateRoute>
+                    <Dashboard />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/mealplan"
+                element={
+                  <PrivateRoute>
+                    <MealPlan />
+                  </PrivateRoute>
+                }
+              />
+
+              {/* Catch-all */}
+              <Route path="*" element={<p className="text-center mt-10">Page Not Found</p>} />
             </Routes>
           </main>
-
           <Footer />
         </div>
       </Router>
     </DataProvider>
   );
 }
-
-export default App;

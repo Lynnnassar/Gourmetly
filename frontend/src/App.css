@@ -54,53 +54,77 @@ body,
 /* =========================
    NAVBAR
 ========================= */
-nav {
+.navbar {
+  background-color: #ff6b6b;
+  padding: 1rem 2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+}
+
+.navbar-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
   align-items: center;
-  padding: 0.8rem 2rem;
-  background-color: #ffffff;
-  border-bottom: 1px solid #ddd;
+  justify-content: space-between;
 }
 
-nav a {
+.navbar-logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: #fff;
   text-decoration: none;
-  color: inherit;
-  margin: 0 0.7rem;
+  font-size: 1.5rem;
+}
+
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar-menu li a {
+  text-decoration: none;
+  color: #fff;
   font-weight: 500;
+  transition: color 0.2s ease-in-out;
 }
 
-nav a:hover {
-  opacity: 0.7;
+.navbar-menu li a:hover {
+  color: #ffe66d;
 }
 
-.app-wrapper.dark nav {
-  background-color: #181818;
-  border-bottom: 1px solid #333;
-}
 
 /* =========================
    HOME PAGE
 ========================= */
-.home-container {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-}
-
 .hero {
   text-align: center;
-  padding: 4rem 1rem;
+  padding: 3rem 1rem;
+  background-color: #ffe66d;
+  border-radius: 10px;
 }
 
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+.featured-section .carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem 0;
 }
 
-.hero p {
-  font-size: 1.2rem;
-  opacity: 0.8;
+.featured-section .carousel::-webkit-scrollbar {
+  height: 6px;
+}
+
+.featured-section .carousel::-webkit-scrollbar-thumb {
+  background-color: #ff6b6b;
+  border-radius: 3px;
 }
 
 /* =========================
@@ -126,7 +150,7 @@ nav a:hover {
 
 .recipe-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .recipe-card img {

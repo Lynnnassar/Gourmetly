@@ -1,37 +1,34 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-function RecipeCard({ recipe, showRemove = false, onRemove }) {
+export default function RecipeCard({ recipe, onAdd }) {
+  const imageSrc = recipe.image
+    ? `/src/assets/images/${recipe.image}`
+    : "/src/assets/images/default.png";
+
   return (
-    <div className="card">
-      <img src={recipe.image} alt={recipe.name} />
-      <h3>{recipe.name}</h3>
-      <p>{recipe.shortDesc}</p>
+    <div className="card h-100">
+      <img src={imageSrc} className="card-img-top" alt={recipe.name} />
 
-      <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
-        <Link to={`/recipes/${recipe.id}`}>
-          <button>View Recipe</button>
-        </Link>
+      <div className="card-body d-flex flex-column">
+        <h5 className="card-title">{recipe.name}</h5>
+        <p className="card-text">{recipe.type}</p>
 
-        {/* Remove button appears only inside the weekly plan */}
-        {showRemove && (
-          <button 
-            onClick={onRemove}
-            style={{
-              background: '#e63946',
-              color: 'white',
-              border: 'none',
-              padding: '8px 12px',
-              borderRadius: '5px',
-              cursor: 'pointer'
-            }}
-          >
-            Remove
-          </button>
-        )}
+        <div className="mt-auto d-flex gap-2">
+          <Link to={`/recipes/${recipe.id}`} className="btn btn-outline-primary btn-sm">
+            See Recipe
+          </Link>
+
+          {onAdd && (
+            <button
+              className="btn btn-primary btn-sm"
+              onClick={() => onAdd(recipe)}
+            >
+              Add to Meal Plan
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
 }
-
-export default RecipeCard;
