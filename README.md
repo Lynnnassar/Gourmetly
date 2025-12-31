@@ -1,72 +1,72 @@
-# 🍽️ Gourmetly — Recipe Organizer & Weekly Meal Planner  
-*A React-based web application for viewing recipes, planning meals, and exploring cooking ideas.*
+# 🍽️ Gourmetly
+
+Gourmetly is a full-stack web application that allows users to explore recipes, view detailed cooking instructions, and build a personalized weekly meal plan. Authenticated users can add and remove meals from their plan and track their weekly planning progress through a dashboard.
 
 ---
 
-## 📌 Project Overview
+## 🚀 Features
 
-**Gourmetly** is a modern, responsive React application designed for food lovers who want to browse recipes, explore ingredients, and plan meals for the entire week.  
-The app provides an elegant user interface, fast performance, and an enjoyable cooking experience.
-
-This project was developed as part of **CSCI426: Advanced Web Programming** to demonstrate skills in UI/UX, React development, responsive design, and deployment.
-
----
-
-## ✨ Features
-
-### **📄 Pages Included**
-- **Home** – Featured recipes, meal of the day, introduction  
-- **About** – Detailed explanation of the system, usage, and benefits  
-- **Recipes** – Dynamic recipe listing with search + filtering  
-- **Meal Plan** – Add/remove recipes from a weekly plan  
-- **Contact** – Professional contact form with submission state  
-- **Dynamic Recipe Page** – Individual recipe details (ingredients + steps)
+- User authentication (Register / Login)
+- Browse all recipes
+- View detailed recipe instructions
+- Add recipes to a personal meal plan
+- Remove meals from the meal plan
+- User dashboard with weekly meal planning progress
+- Protected routes for authenticated users
 
 ---
 
-### **⚙️ Core Functionality**
-- Browse recipes with images  
-- Add meals to the weekly plan  
-- Remove meals from the plan  
-- Dark/Light mode toggle  
-- Responsive layout for all screen sizes  
-- Dynamic recipe detail routing (`/recipes/:id`)  
-- Local image assets & external images  
-- Form handling and user feedback  
+## 🛠️ Tech Stack
+
+### Frontend
+- React (Vite)
+- React Router
+- Context API (Global State Management)
+- Chart.js (Dashboard visualization)
+- Bootstrap (Styling – no Tailwind)
+
+### Backend
+- Node.js
+- Express.js
+- MySQL
+- JWT Authentication
 
 ---
 
-## 🛠️ Technologies Used
+## 📁 Project Structure
 
-- **React.js**
-- **React Router**
-- **CSS3 (custom styling)**
-- **Git & GitHub**
-- **Vercel / Netlify (Deployment)**  
-- **Unsplash images / local assets**
+Gourmetly-Cloud/
+├── frontend/
+│ ├── src/
+│ │ ├── assets/
+│ │ ├── components/
+│ │ ├── context/
+│ │ ├── pages/
+│ │ └── App.jsx
+│ └── package.json
+│
+├── backend/
+│ ├── controllers/
+│ ├── models/
+│ ├── routes/
+│ ├── middleware/
+│ └── server.js
+🔐 Authentication Notes
 
----
+Meal Plan and Dashboard are protected routes
 
-## 📂 Project Structure
+Users must be logged in to add meals or view dashboard data
+📊 Dashboard
 
-src
-├── assets
-│ └── images/
-│ ├── salad.jpg
-│ ├── toast.jpg
-│ ├── bolognese.jpg
-│ ├── pancakes.jpg
-├── components
-│ ├── Navbar.js
-│ ├── Footer.js
-│ ├── RecipeCard.js
-├── pages
-│ ├── Home.js
-│ ├── About.js
-│ ├── Recipes.js
-│ ├── RecipeDetails.js
-│ ├── MealPlan.js
-│ ├── Contact.js
-├── App.js
-├── App.css
-└── index.js
+The dashboard visualizes weekly meal planning data using Chart.js based on user activity stored in the database.
+🧪 Current Status
+
+Core functionality implemented
+
+Meal plan integration working with authentication
+
+Dashboard progress connected to backend
+👩‍💻 Author
+
+Lynn Nassar
+Computer Science – CSCI426 
