@@ -61,7 +61,7 @@ exports.login = async (req, res) => {
     res.json({
       user: {
         id: user.id,
-        name: user.username, // 🔥 FIX
+        name: user.username,
         email: user.email,
       },
       token,
