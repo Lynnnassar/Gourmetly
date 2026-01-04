@@ -1,7 +1,7 @@
 // src/pages/Home.jsx
 import React, { useEffect, useState } from "react";
 import RecipeCard from "../components/RecipeCard";
-import "../app.css"; // Add your styles
+import "../App.css"; // 
 
 export default function Home() {
   const [recipes, setRecipes] = useState([]);
